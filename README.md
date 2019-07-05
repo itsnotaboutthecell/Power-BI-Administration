@@ -80,6 +80,13 @@ Instructions
 4.	Navigate to the folder matching AnalysisServicesWorkspaces
 5.	Navigate to Data
 6.	Open file msmdsrv.port.txt to obtain the localhost Port
+
+OR
+
+Open Task Manager > Details Tab > name: msmsrv.exe - PID
+Run Command Prompt > nestat -anop tcp - the Local Address following the colon is the current port number
+
+
 7.	Open the Vertipaq Analyzer
 8.	Open the Power Pivot for Excel window (go in Data ribbon, then click on Manage Data Model button)
 9.	Click Existing Connections in the Home ribbon
