@@ -69,7 +69,24 @@ Reference: https://docs.microsoft.com/en-us/power-bi/service-dataflows-azure-dat
 VertiPaq Analyzer is useful to analyze VertiPaq storage structures for a data model in Analysis Services Tabular. 
 A complete description and short tutorial is available in the article Data Model Size with VertiPaq Analyzer.
 
-Instructions
+Power BI Desktop Instructions (Microsoft Store):
+1.	Open the Power BI (pbix) file
+2.	Open Task Manager, navigate to the Details tab and find the below name and PID:
+```
+      msmsrv.exe
+```
+3.	Open Command Prompt
+4.  Run the following command
+```
+      netstat -anop tcp
+```
+5.	Locate the associating PID
+6.  Within the Local Address column the current port number is listed after the colon in the IP address.
+```
+      ex. 0.0.0.0:50028
+```
+
+Power BI Desktop Instructions
 1.	Open the Power BI (pbix) file
 2.	Navigate to Start and then Run
       Shortcut: (Windows + R)
@@ -80,11 +97,6 @@ Instructions
 4.	Navigate to the folder matching AnalysisServicesWorkspaces
 5.	Navigate to Data
 6.	Open file msmdsrv.port.txt to obtain the localhost Port
-
-OR
-
-Open Task Manager > Details Tab > name: msmsrv.exe - PID
-Run Command Prompt > nestat -anop tcp - the Local Address following the colon is the current port number
 
 
 7.	Open the Vertipaq Analyzer
