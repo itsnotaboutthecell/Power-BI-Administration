@@ -4,7 +4,6 @@ Recommendations for Power BI Service Administration based on best practices and 
 ## OneDrive for Business
 ###### Collaborative Storage
 The Workspace OneDrive feature allows you to configure an Office 365 Group whose SharePoint Document Library file storage is available to workspace users. You create the group outside of Power BI first. Power BI doesn't synchronize permissions of users or groups who are configured to have workspace access with the Office 365 Group membership. The best practice is give the same Office 365 group, whose file storage you configure in this setting Office 365 group, access to the workspace. Then manage workspace access by managing membership of the Office 365 group.
-Reference: https://docs.microsoft.com/en-us/power-bi/service-create-the-new-workspaces#workspace-onedrive
 
 > **Instructions**
 ```
@@ -12,11 +11,10 @@ Reference: https://docs.microsoft.com/en-us/power-bi/service-create-the-new-work
 2. Expand Advanced
 3. Populate the Workspace OneDrive
 ```
+Reference: https://docs.microsoft.com/en-us/power-bi/service-create-the-new-workspaces#workspace-onedrive
 
 ###### File Synchronization
 When you store a Power BI Desktop file on OneDrive or SharePoint Online, any data you’ve loaded into your file’s model is imported into the dataset, and any reports you’ve created in the file are loaded into Reports in the Power BI serviced. When you make changes to your file on OneDrive or SharePoint Online, such as adding new measures, changing column names, or editing visualizations, once you save the file those changes will be updated in the Power BI service too, usually within about an hour.
-
-Reference: https://docs.microsoft.com/en-us/power-bi/refresh-desktop-file-onedrive
 
 > **Instructions**
 ```
@@ -27,8 +25,9 @@ Reference: https://docs.microsoft.com/en-us/power-bi/refresh-desktop-file-onedri
     • OneDrive – Business
     • Select the Power BI (PBIX) file
 ```
-
-
+Reference: https://docs.microsoft.com/en-us/power-bi/refresh-desktop-file-onedrive
+<br />
+<br />
 ###### Version History
 With online version history, you can see and restore older versions of all your files in your OneDrive. Version history works with all file types, including PDFs, CAD files, photos, and videos. If you need to, you might be able to restore deleted OneDrive files or restore deleted SharePoint items from the recycle bin.
 
