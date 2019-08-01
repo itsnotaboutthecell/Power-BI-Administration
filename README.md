@@ -79,9 +79,10 @@ Power BI Desktop Instructions (Microsoft Store):
 4.  Run the following command and replace the {PID} with the result in step 2
 ```
       netstat -anop TCP | find /I "{PID}"
-      
-      
-      ex. nestat -anop TCP | find /I "6452"
+```     
+Example:
+```
+      nestat -anop TCP | find /I "6452"
 ```
 5.	Locate the associating PID
 6.  Within the Local Address column the current port number is listed after the colon in the IP address.
