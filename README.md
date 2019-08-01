@@ -69,7 +69,8 @@ Reference: https://docs.microsoft.com/en-us/power-bi/service-dataflows-azure-dat
 VertiPaq Analyzer is useful to analyze VertiPaq storage structures for a data model in Analysis Services Tabular. 
 A complete description and short tutorial is available in the article Data Model Size with VertiPaq Analyzer.
 
-Power BI Desktop Instructions (Microsoft Store):
+Instructions:
+> Power BI Desktop (Microsoft Store):
 1.	Open the Power BI (pbix) file
 2.	Open Task Manager, navigate to the Details tab and find the below name and PID:
 ```
@@ -90,7 +91,7 @@ Example:
       ex. 0.0.0.0:50028
 ```
 
-Power BI Desktop Instructions
+> Power BI Desktop (Download Center)
 1.	Open the Power BI (pbix) file
 2.	Navigate to Start and then Run
       Shortcut: (Windows + R)
