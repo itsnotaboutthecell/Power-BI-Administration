@@ -69,7 +69,7 @@ Instructions:
 1.	Open the Power BI (pbix) file
 2.	Open Task Manager, navigate to the Details tab and find the below name and PID:
 ```
-      msmsrv.exe
+      msmdsrv.exe
 ```
 3.	Open Command Prompt
 4.  Run the following command and replace the {PID} with the result in step 2
