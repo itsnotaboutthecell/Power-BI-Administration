@@ -1,5 +1,11 @@
 # Power-BI-Administration
-Recommendations for Power BI Service Administration based on best practices and Microsoft's official documentation.  
+Recommended practices for Power BI service Administration.
+
+# Power-BI-Licenses
+How to determine who within your organization currently has a Power BI license (Pro, Free or Standard).
+
+<script src="https://gist.github.com/itsnotaboutthecell/d718cb620fab7af8dd8ff929903b1402.js"></script>
+
 <br />
 ## OneDrive for Business
 ###### Collaborative Storage
