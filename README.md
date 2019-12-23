@@ -1,8 +1,8 @@
-# Power-BI-Administration
-Recommended practices for Power BI service Administration.
+# Power BI Administration and Premium Capacity Management
+Recommended practices for Power BI service Administration and Power BI Premium Capacity Management.
 
 # Power-BI-Licenses
-Determine who within your organization currently has a Power BI license (Pro, Free or Standard).
+Determine the users within your organization currently licensed with Power_BI_Pro or Power_BI_Standard (often refered to as free).
 
 PowerShell Reference: https://github.com/itsnotaboutthecell/powerbicmdlets/blob/master/Power_BI_User_Licenses.ps1
 
