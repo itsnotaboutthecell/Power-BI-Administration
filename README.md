@@ -2,9 +2,9 @@
 Recommended practices for Power BI service Administration.
 
 # Power-BI-Licenses
-How to determine who within your organization currently has a Power BI license (Pro, Free or Standard).
+Determine who within your organization currently has a Power BI license (Pro, Free or Standard).
 
-<script src="https://gist.github.com/itsnotaboutthecell/d718cb620fab7af8dd8ff929903b1402.js"></script>
+PowerShell Reference: https://github.com/itsnotaboutthecell/powerbicmdlets/blob/master/Power_BI_User_Licenses.ps1
 
 <br />
 ## OneDrive for Business
