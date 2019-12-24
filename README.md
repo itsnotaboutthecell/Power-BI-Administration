@@ -2,12 +2,12 @@
 Recommended practices for Power BI service Administration and Power BI Premium Capacity Management.
 
 # Power BI Licenses
-Determine the users within your organization currently licensed with Power_BI_Pro or Power_BI_Standard (often refered to as free).
+Determine the users within your organization currently assigned Power_BI_Pro or Power_BI_Standard licenses.
 
-PowerShell Reference: https://github.com/itsnotaboutthecell/powerbicmdlets/blob/master/Power_BI_User_Licenses.ps1
-
+PowerShell Reference: [Power_BI_User_Licenses](../master/Power_BI_User_Licenses.ps1)
 <br />
-## OneDrive for Business
+
+> ## OneDrive for Business
 ###### Collaborative Storage
 The Workspace OneDrive feature allows you to configure an Office 365 Group whose SharePoint Document Library file storage is available to workspace users. You create the group outside of Power BI first. Power BI doesn't synchronize permissions of users or groups who are configured to have workspace access with the Office 365 Group membership. The best practice is give the same Office 365 group, whose file storage you configure in this setting Office 365 group, access to the workspace. Then manage workspace access by managing membership of the Office 365 group.
 
