@@ -1,11 +1,18 @@
 $m = "MSOnline"
+$outPath = "C:\"
 
-if (Get-Module | Where-Object {$_.Name -eq $m}) {
-    write-host "Module $m is already imported."
-} 
-else {
-    Install-Module -Name $m -Force -Verbose -Scope CurrentUser
-    Import-Module $m -Verbose
+# Determines if final character is a forward slash, if not concatenates to the outPath variable
+if ($outPath.Substring($outPath.Length - 1, 1) -cne "\") {
+    $outPath = $outPath + "\"
+}
+
+# Determines if Module already exists, if not installs
+if (Get-Module -ListAvailable -Name $m) {
+        write-host "Module $m is already imported."
+    } 
+    else {
+        Install-Module -Name $m -Force -Verbose -Scope CurrentUser
+        Import-Module $m -Verbose
 }
 
 Connect-MsolService
@@ -17,6 +24,6 @@ foreach ($license in $licenseType) {
     $Licenses = $allUsers | Where-Object {($_.licenses).AccountSkuId -match ($license)} | select objectId, WhenCreated, SignInName , displayName, Title, City, State, Country
 
     Write-Host "Now Exporting Report: $($license)"
-    $Licenses | Export-Csv -Path "C:\Power BI\$($license)_$(Get-Date -Format "yyyyMMdd").csv" -NoTypeInformation
+    $Licenses | Export-Csv -Path "$($outPath)$($license)_$(Get-Date -Format "yyyyMMdd").csv" -NoTypeInformation
 
 }
