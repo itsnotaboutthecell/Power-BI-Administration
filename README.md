@@ -4,15 +4,15 @@ Recommended practices for Power BI service Administration and Power BI Premium C
 # Power BI Licenses
 Determine the users within your organization currently assigned Power_BI_Pro or Power_BI_Standard licenses.
 
-# PowerShell
+## PowerShell
 Example cmdlet [Power_BI_User_Licenses](../master/Power_BI_User_Licenses.ps1)
 <br />
 
-# Microsoft 365 admin center
+## Microsoft 365 admin center
 Navigate to [Active users](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/users), select Filter and the + New filter option. For the Assigned product license select Power BI Pro and if necessary a second filter for Power BI (free) users can also be created. The Export Users functionality will provide a list of users in a csv file format.
 <br />
 
-> ## OneDrive for Business and SharePoint Online ##
+# OneDrive for Business and SharePoint Online
 ###### File Synchronization and Version History
 When you store a Power BI Desktop file on OneDrive or SharePoint Online, any data you’ve loaded into your file’s model is imported into the dataset, and any reports you’ve created in the file are loaded into Reports in the Power BI serviced. When you make changes to your file on OneDrive or SharePoint Online, such as adding new measures, changing column names, or editing visualizations, once you save the file those changes will be updated in the Power BI service too, usually within about an hour.
 
