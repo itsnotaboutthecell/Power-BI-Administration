@@ -4,7 +4,12 @@ Recommended practices for Power BI service Administration and Power BI Premium C
 # Power BI Licenses
 Determine the users within your organization currently assigned Power_BI_Pro or Power_BI_Standard licenses.
 
-PowerShell Reference: [Power_BI_User_Licenses](../master/Power_BI_User_Licenses.ps1)
+# PowerShell
+Example cmdlet [Power_BI_User_Licenses](../master/Power_BI_User_Licenses.ps1)
+<br />
+
+# Microsoft 365 admin center
+Navigate to [Active users](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/users), select Filter and the + New filter option. For the Assigned product license select Power BI Pro and if necessary a second filter for Power BI (free) users can also be created. The Export Users functionality will provide a list of users in a csv file format.
 <br />
 
 > ## OneDrive for Business and SharePoint Online ##
