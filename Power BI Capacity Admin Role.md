@@ -9,7 +9,7 @@ Engagements will largely concentrate on determining the objectives of the develo
 ##### Related Tasks
    * Determining which reusable entities from [dataflows](https://docs.microsoft.com/en-us/power-bi/service-dataflows-overview) can be leveraged when building new datasets.
    * Determining if redundancy of a dataset exists. Work with owning business unit for build permissions as a [shared dataset](https://docs.microsoft.com/en-us/power-bi/service-datasets-build-permissions).
-   * Determinin if data extraction requirement exists that [paginated reports](https://www.microsoftevents.com/profile/form/index.cfm?PKformID=0x88303270001&ch=x4) are positioned.
+   * Determining if data extraction requirement exists if [paginated reports](https://www.microsoftevents.com/profile/form/index.cfm?PKformID=0x88303270001&ch=x4) are better positioned.
 </br></br>
 
 ### (Optional) Managing a Test Capacity environment</br>
