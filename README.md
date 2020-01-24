@@ -2,7 +2,9 @@
 Recommended practices for Power BI service Administration and Power BI Premium Capacity Management.
 
 # Power BI Licenses
-Determine the users within your organization currently assigned Power_BI_Pro or Power_BI_Standard licenses.
+Determine the users within your organization currently assigned Power_BI_Pro or Power_BI_Standard licenses. 
+
+<b>Recommended Practice:</b> Create a Mail Enabled Security Group including your Pro Users for any organizational notifications and any approved organizational assets (dataflows, datasets, etc.)
 
 ## PowerShell
 Example cmdlet [Power_BI_User_Licenses](../master/Power_BI_User_Licenses.ps1)
@@ -10,6 +12,15 @@ Example cmdlet [Power_BI_User_Licenses](../master/Power_BI_User_Licenses.ps1)
 
 ## Microsoft 365 admin center
 Navigate to [Active users](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/users), select Filter and the + New filter option. For the Assigned product license select Power BI Pro and if necessary a second filter for Power BI (free) users can also be created. The Export Users functionality will provide a list of users in a csv file format.
+<br />
+
+# Power BI Audit Logs
+Determine the current activites within your organization. Currently allows 90 days worth of history. 
+
+<b>Recommended Practice:</b> Run as a nightly batch activity to collect the previous days activities.
+
+## PowerShell
+Example cmdlet [Power_BI_Audit_Logs](../master/Power_BI_Audit_Logs.ps1)
 <br />
 
 # OneDrive for Business and SharePoint Online
