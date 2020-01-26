@@ -6,7 +6,7 @@ Determine the users within your organization currently assigned Power_BI_Pro or 
 
 <b>Recommended Practice:</b> Create a Mail Enabled Security Group to facilitate your Pro Users for license assignment, organizational notifications and sharing approved organizational assets within Power BI (dataflows, datasets, etc.)
 
-Assigning a Group License: https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/licensing-groups-assign
+How to: [Assign a Group License](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/licensing-groups-assign)
 
 ## PowerShell
 Example cmdlet [Power_BI_User_Licenses](../master/Power_BI_User_Licenses.ps1)
