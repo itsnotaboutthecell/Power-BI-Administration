@@ -29,7 +29,7 @@ Returns the available cmdlets from either the MicrosoftPowerBIMGMT or DataGatewa
 
 Get-Help *PowerBI* | Sort Name | Format-Table -AutoSize
 
-#!csharp
+#!powershell
 
 Get-Help *DataGateway* | Sort Name | Format-Table -AutoSize
 
