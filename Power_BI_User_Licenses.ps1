@@ -17,11 +17,11 @@ if (Get-Module -ListAvailable -Name $m) {
 
 Connect-MsolService
 $licenseType = "Power_BI_Pro", "Power_BI_Standard"
-$allUsers = Get-MsolUser -All | where {$_.isLicensed -eq "True"}
+$allUsers = Get-MsolUser -All | Where-Object {$_.isLicensed -eq "True"}
 
 foreach ($license in $licenseType) {
 
-    $Licenses = $allUsers | Where-Object {($_.licenses).AccountSkuId -match ($license)} | select objectId, WhenCreated, SignInName , displayName, Title, City, State, Country
+    $Licenses = $allUsers | Where-Object {($_.licenses).AccountSkuId -match ($license)} | Select-Object objectId, WhenCreated, SignInName , displayName, Title, City, State, Country
 
     Write-Host "Now Exporting Report: $($license)"
     $Licenses | Export-Csv -Path "$($outPath)$($license)_$(Get-Date -Format "yyyyMMdd").csv" -NoTypeInformation

@@ -1,0 +1,93 @@
+#!markdown
+
+# Microsoft Power BI Cmdlets for Windows PowerShell and PowerShell Core
+The following cmdlets are available on PowerShell Gallery and can be installed in an elevated PowerShell session:
+- [Microsoft Power BI](https://docs.microsoft.com/en-us/powershell/power-bi/overview?view=powerbi-ps)
+- [Data Gateway](https://docs.microsoft.com/en-us/powershell/module/datagateway/?view=datagateway-ps)
+
+#!powershell
+
+$modules = @("MicrosoftPowerBIMGMT", "DataGateway")
+
+foreach ( $m in $modules ) 
+{
+    if (Get-Module -ListAvailable -Name $m) {
+        write-host "Module $m is already imported."
+    } 
+    else {
+        Install-Module -Name $m -Force -Verbose -Scope CurrentUser
+        Import-Module $m -Verbose
+    }
+}
+
+#!markdown
+
+# Available Cmdlets
+Returns the available cmdlets from either the MicrosoftPowerBIMGMT or DataGateway module.
+
+#!powershell
+
+Get-Help *PowerBI* | Sort Name | Format-Table -AutoSize
+
+#!csharp
+
+Get-Help *DataGateway* | Sort Name | Format-Table -AutoSize
+
+#!markdown
+
+# Connect to Power BI service
+Login with Azure Active Directory user authentication or Service Principal credentials.
+
+For Service Principal:
+- Connect-PowerBIServiceAccount -ServicePrincipal -Credential (Get-Credential)
+
+#!powershell
+
+Connect-PowerBIServiceAccount
+
+#!markdown
+
+# Scope
+
+Indicates the scope of the call.
+- -Scope Individual
+    - Returns only workspaces assigned to the caller.
+- -Scope Organization
+    - Returns all workspaces within a tenant (must be an administrator to initiate).
+
+#!powershell
+
+$scopeLevel = "Individual"
+
+#!markdown
+
+# Return a list of Power BI workspaces
+
+Return a listing of the Power BI workspaces including Id, Name, IsReadOnly and IsOnDedicatedCapacity.
+
+To list all workspaces, use the parameter -All
+
+#!powershell
+
+$pbiWorkspaces = Get-PowerBIWorkspace -Scope $scopeLevel -All
+Write-Host "Total Number of Workspaces: $($pbiWorkspaces.Count)`n"
+
+Get-PowerBIWorkspace -Scope Individual -First 5
+
+#!markdown
+
+# Return a list of Power BI reports in a workspace
+
+Return a listing of the Power BI reports within a workspace including the additional attributes WorkspaceId and Type.
+
+#!powershell
+
+$pbiWorkspaces = Get-PowerBIWorkspace -Scope $scopeLevel -First 5
+
+$pbiReports = @()
+
+ForEach ($workspace in $pbiWorkspaces) {
+    $pbiReports += Get-PowerBIReport -Scope $scopeLevel -WorkspaceId $workspace.Id | select *, @{Name="WorkspaceId"; Expression={ $workspace.Id } }, @{Name="Type"; Expression={ "Report" } }
+}
+
+$pbiReports | Sort-Object -Property Id -Unique
