@@ -87,7 +87,50 @@ $pbiWorkspaces = Get-PowerBIWorkspace -Scope $scopeLevel -First 5
 $pbiReports = @()
 
 ForEach ($workspace in $pbiWorkspaces) {
+
     $pbiReports += Get-PowerBIReport -Scope $scopeLevel -WorkspaceId $workspace.Id | select *, @{Name="WorkspaceId"; Expression={ $workspace.Id } }, @{Name="Type"; Expression={ "Report" } }
+    
 }
 
 $pbiReports | Sort-Object -Property Id -Unique
+
+#!markdown
+
+# Return a list of Power BI dashboards in a workspace
+
+Return a listing of the Power BI dasbhoards within a workspace including the additional attributes WorkspaceId and Type.
+
+#!powershell
+
+$pbiWorkspaces = Get-PowerBIWorkspace -Scope $scopeLevel -First 5
+
+$pbiDashboards = @()
+
+ForEach ($workspace in $pbiWorkspaces) {
+
+    $pbiDashboards += Get-PowerBIDashboard -Scope $scopeLevel -WorkspaceId $workspace.Id | select *, @{Name="WorkspaceId"; Expression={ $workspace.Id } }, @{Name="Type"; Expression={ "Dashboard" } }
+    
+}
+
+$pbiDashboards | Sort-Object -Property Id -Unique
+
+#!markdown
+
+# Return a list of Power BI tiles in a workspace
+
+Return a listing of the Power BI tiles within a workspace including the additional attributes WorkspaceId and Type.
+
+#!powershell
+
+$pbiWorkspaces = Get-PowerBIWorkspace -Scope $scopeLevel -First 5
+
+$pbiTiles = @()
+
+ForEach ($workspace in $pbiWorkspaces) {
+    $pbiDashboards = Get-PowerBIDashboard -Scope $scopeLevel -WorkspaceId $workspace.Id
+    ForEach ($pbiDashboard in $pbiDashboards) {
+        $pbiTiles += Get-PowerBITile -Scope $scopeLevel -WorkspaceId $workspace.Id -DashboardId $pbiDashboard.Id | select *, @{Name="WorkspaceId"; Expression={ $workspace.Id } }, @{Name="DashboardId"; Expression={ $workspace.Id } }, @{Name="Type"; Expression={ "Tile" } }
+    }
+}
+
+$pbiTiles | Sort-Object -Property Id -Unique
