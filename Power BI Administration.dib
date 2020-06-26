@@ -116,9 +116,9 @@ $pbiDashboards | Sort-Object -Property Id -Unique
 
 #!markdown
 
-# Return a list of Power BI tiles in a workspace
+# Return a list of Power BI tiles on a dashboard in a workspace
 
-Return a listing of the Power BI tiles within a workspace including the additional attributes WorkspaceId and Type.
+Return a listing of the Power BI tiles on a dashboard within a workspace including the additional attributes WorkspaceId, DashboardId and Type.
 
 #!powershell
 
@@ -127,10 +127,15 @@ $pbiWorkspaces = Get-PowerBIWorkspace -Scope $scopeLevel -First 5
 $pbiTiles = @()
 
 ForEach ($workspace in $pbiWorkspaces) {
+
     $pbiDashboards = Get-PowerBIDashboard -Scope $scopeLevel -WorkspaceId $workspace.Id
+
     ForEach ($dashboard in $pbiDashboards) {
+
         $pbiTiles += Get-PowerBITile -Scope $scopeLevel -WorkspaceId $workspace.Id -DashboardId $dashboard.Id | select *, @{Name="WorkspaceId"; Expression={ $workspace.Id } }, @{Name="DashboardId"; Expression={ $dashboard.Id } }, @{Name="Type"; Expression={ "Tile" } }
+
     }
+    
 }
 
 $pbiTiles | Sort-Object -Property Id -Unique
