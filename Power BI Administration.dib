@@ -96,6 +96,52 @@ $pbiDatasets | Sort-Object -Property Id -Unique
 
 #!markdown
 
+# Return a list of Power BI dataflows in a workspace
+
+Return a listing of the Power BI dataflows within a workspace including the additional attributes WorkspaceId and Type.
+
+#!powershell
+
+$pbiWorkspaces = Get-PowerBIWorkspace -Scope $scopeLevel -First 5
+
+$pbiDataflows = @()
+
+ForEach ($workspace in $pbiWorkspaces) {
+
+    $pbiDataflows += Get-PowerBIDataflow -Scope $scopeLevel -WorkspaceId $workspace.Id | select *, @{Name="WorkspaceId"; Expression={ $workspace.Id } }, @{Name="Type"; Expression={ "Dataflow" } }
+    
+}
+
+$pbiDataflows | Sort-Object -Property Id -Unique
+
+#!markdown
+
+# Return a list of Power BI datasources in a dataflow in a workspace
+
+Return a listing of the Power BI datasources in a dataflow within a workspace including the additional attributes WorkspaceId, DataflowId and Type.
+
+#!powershell
+
+$pbiWorkspaces = Get-PowerBIWorkspace -Scope $scopeLevel -First 5
+
+$pbiDataflowDatasources = @()
+
+ForEach ($workspace in $pbiWorkspaces) {
+
+    $pbiDataflows += Get-PowerBIDataflow -Scope $scopeLevel -WorkspaceId $workspace.Id
+
+    ForEach ($dataflow in $pbiDataflows) {
+
+        $pbiDataflowDatasources += Get-PowerBIDataflowDatasource -Scope $scopeLevel -WorkspaceId $workspace.Id -DataflowId $dataflow.Id | select *, @{Name="WorkspaceId"; Expression={ $workspace.Id } }, @{Name="DataflowId"; Expression={ $dataflow.Id } }, @{Name="Type"; Expression={ "Dataflow Datasource" } }
+
+    }
+    
+}
+
+$pbiDataflowDatasources | Sort-Object -Property Id -Unique
+
+#!markdown
+
 # Return a list of Power BI reports in a workspace
 
 Return a listing of the Power BI reports within a workspace including the additional attributes WorkspaceId and Type.
